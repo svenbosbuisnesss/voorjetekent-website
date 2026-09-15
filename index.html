@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voor Je Tekent — Onafhankelijke rendementscheck voor recreatiewoningen</title>
+<meta name="description" content="Overweeg je een recreatiewoning te kopen als belegging? Voor Je Tekent rekent het geadverteerde rendement onafhankelijk na, voordat je tekent.">
+<meta property="og:title" content="Voor Je Tekent — Onafhankelijke rendementscheck">
+<meta property="og:description" content="Een onafhankelijke doorrekening van het rendement dat een vakantiepark je belooft, voordat je een handtekening zet.">
+<meta property="og:type" content="website">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+  --paper:#F6F6F4; --paper-raised:#FFFFFF; --ink:#111111; --ink-soft:#5C5C56;
+  --line:#E2E1DC; --line-strong:#B9B3A0;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Poppins',sans-serif;font-weight:300;font-size:17px;line-height:1.7;}
+h1,h2,h3{font-family:'Poppins',sans-serif;color:var(--ink);line-height:1.08;margin:0 0 .5em 0;font-weight:300;}
+b,strong,.bold{font-weight:800;}
+p{margin:0 0 1.2em 0;font-weight:400;}
+a{color:var(--ink);}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px;}
+.underline{position:relative; display:inline-block;}
+.underline::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--ink);}
+
+/* reveal animation */
+.reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1; transform:translateY(0);}
+.reveal.d1{transition-delay:.08s;} .reveal.d2{transition-delay:.16s;} .reveal.d3{transition-delay:.24s;}
+
+/* Header */
+header.site{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid transparent;}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding:20px 40px;}
+.logo-box{display:flex;flex-direction:column;align-items:flex-start;color:var(--ink);font-size:1.1rem;line-height:.82;letter-spacing:-.06em;text-decoration:none;}
+.logo-box strong{font-weight:800;}
+nav.site-nav ul{list-style:none;display:flex;gap:36px;margin:0;padding:0;}
+nav.site-nav a{text-decoration:none;color:var(--ink);font-weight:400;font-size:.98rem;}
+nav.site-nav a:hover{text-decoration:underline;}
+.btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;font-weight:500;padding:13px 28px;border-radius:24px;border:1px solid var(--ink);font-size:.95rem;cursor:pointer;font-family:inherit;}
+.btn:hover{background:#333;}
+.btn.outline{background:transparent;color:var(--ink);}
+.btn.outline:hover{background:var(--ink);color:#fff;}
+
+/* HERO */
+section.hero{height:100vh;min-height:620px;display:flex;align-items:center;justify-content:center;padding:20px 0;background:#fff;text-align:left;}
+.hero-logo-text{display:flex;flex-direction:column;align-items:flex-start;color:#111;line-height:.88;font-size:clamp(5.5rem,11vw,9rem);letter-spacing:-.08em;}
+.hero-logo-text span{display:block;opacity:0;transform:scale(.35);transform-origin:center;animation:heroGroei 1.1s cubic-bezier(.16,1,.3,1) forwards;}
+.hero-logo-text .hero-light{font-weight:300;}
+.hero-logo-text .hero-heavy{font-weight:800;letter-spacing:-.1em;animation:heroTekent 1.35s cubic-bezier(.16,1,.3,1) .28s forwards;}
+.hero-title{font-size:clamp(1rem,2.4vw,1.5rem);font-weight:400;color:#666;margin-top:30px;opacity:0;animation:heroSubtitel 1s ease-out .85s forwards;}
+@keyframes heroGroei{from{opacity:0;transform:scale(.35)}to{opacity:1;transform:scale(1)}}
+@keyframes heroTekent{0%{opacity:0;transform:scale(.25)}65%{opacity:1;transform:scale(1.06)}100%{opacity:1;transform:scale(1)}}
+@keyframes heroSubtitel{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+
+/* Wat ik doe */
+section.watikdoe{padding:110px 0 90px 0;}
+.section-title{font-size:2.6rem;margin-bottom:70px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:90px;}
+.two-col h3{font-size:1.7rem;font-weight:400;margin-bottom:30px;}
+.two-col p{color:var(--ink);max-width:52ch;}
+.ph-img{background:#E4E2DB;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:.82rem;text-align:center;padding:20px;margin:28px 0;}
+.ph-img.photo{padding:0;overflow:hidden;}
+.ph-img.photo img{width:100%;height:100%;display:block;object-fit:cover;}
+.ph-img.h1{height:220px;} .ph-img.h2{height:260px;} .ph-img.h3{height:200px;}
+.inline-link{text-decoration:underline;}
+
+/* Testimonials */
+section.testimonials{padding:70px 0; border-top:1px solid var(--line); overflow:hidden; position:relative;}
+.carousel{position:relative;height:230px;}
+.slide{position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; opacity:0; transform:translateX(40px); transition:opacity .5s ease, transform .5s ease; pointer-events:none;}
+.slide.active{opacity:1; transform:translateX(0); pointer-events:auto;}
+.slide q{font-size:1.9rem; font-weight:300; max-width:26ch; quotes:'"' '"'; }
+.slide .name{margin-top:22px; color:var(--ink-soft); font-size:.95rem;}
+.carousel-controls{display:flex; gap:14px; margin-top:20px;}
+.carousel-controls button{width:46px;height:46px;border-radius:50%;background:#3a3a3a;color:#fff;border:none;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;}
+.carousel-controls button:hover{background:var(--ink);}
+
+/* Wie ik help */
+section.wieikhelp{padding:100px 0;}
+.split{display:grid;grid-template-columns:0.85fr 1.15fr;gap:70px;align-items:center;}
+.split img, .split .ph-img{width:100%;height:320px;}
+.split h2{font-size:2.6rem;margin-bottom:26px;}
+.split p{max-width:56ch;}
+
+/* Over mij */
+section.overmij{padding:60px 0 110px 0;}
+.overmij .split{grid-template-columns:1.2fr 0.8fr;}
+.overmij h2{font-size:2.6rem;margin-bottom:26px;}
+.overmij p{max-width:62ch;}
+.overmij .ph-img{height:300px;}
+
+/* Footer */
+footer.site{background:#0A0A0A;color:#D9D9D3;padding:70px 0 40px 0;}
+footer.site h2{color:#fff;font-size:2.2rem;margin-bottom:36px;}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:50px;margin-bottom:50px;}
+footer.site .contact-lines div{margin-bottom:10px;color:#C9C9C3;font-size:.98rem;}
+footer.site h4{color:#fff;font-weight:500;font-size:1.05rem;margin-bottom:18px;}
+footer.site ul{list-style:none;padding:0;margin:0;}
+footer.site ul li{margin-bottom:12px;}
+footer.site ul a{color:#C9C9C3;text-decoration:underline;font-size:.95rem;}
+footer.site ul a:hover{color:#fff;}
+footer.site .legal-note{color:#8f8f89;font-size:.9rem;margin-top:6px;}
+footer.site .foot-bottom{border-top:1px solid #262622;padding-top:24px;font-size:.82rem;color:#71716c;}
+
+@media (max-width:900px){
+  .two-col, .split, .footer-grid{grid-template-columns:1fr;}
+  .hero-word{font-size:4.2rem;}
+  header.site .wrap{flex-wrap:wrap;gap:14px;}
+  nav.site-nav ul{gap:20px; flex-wrap:wrap;}
+  .wrap{padding:0 22px;}
+  .slide q{font-size:1.4rem;}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a href="index.html" class="logo-box" aria-label="Voor Je Tekent">
+      <span>Voor</span>
+      <span>Je</span>
+      <strong>Tekent.</strong>
+    </a>
+    <nav class="site-nav" aria-label="Hoofdmenu">
+      <ul>
+        <li><a href="#wat-ik-doe">Wat ik doe</a></li>
+        <li><a href="#wie-ik-help">Wie ik help</a></li>
+        <li><a href="#over-mij">Over mij</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="btn">Contact</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="hero-logo-text" aria-label="Voor Je Tekent.">
+        <span class="hero-light">Voor</span>
+        <span class="hero-light">Je</span>
+        <span class="hero-heavy">Tekent.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="watikdoe" id="wat-ik-doe">
+  <div class="wrap">
+    <h2 class="section-title reveal"><span class="underline">Wat ik doe.</span></h2>
+    <div class="two-col">
+      <div>
+        <h3 class="reveal">Het probleem waar het om draait.</h3>
+        <p class="reveal">Ik heb gezien dat meerdere mensen een probleem hadden bij een situatie. Ze hadden wat geld gespaard, en wouden het veilig investeren in vastgoed, voor bijvoorbeeld hun pensioen. Ze hadden een advertentie gezien van een recreatiewoning die te koop stond en zagen goed rendement, en tekende zonder te checken....</p>
+        <p class="reveal">Bij de aankoop van een recreatiewoning door deze particuliere beleggers wordt een aantrekkelijk rendement beloofd door de vakantieparken. Ze komen uit op te hoge percentages, omdat zij die de woning aanbieden ook de berekening hebben gemaakt.</p>
+        <div class="ph-img photo h1 reveal"><img src="assets/vakantiehuis.jpg" alt="Wit vakantiehuisje met rode luiken"></div>
+        <div class="ph-img h3 reveal">Foto: stenen muurtje / tuin</div>
+        <p class="reveal">Dit probleem is niet zomaar iets waarbij een belegger denkt dat het gewoon tegenzat. Onafhankelijke bronnen bevestigen dat de rendementen in het echt flink kunnen tegenvallen, en dat deze markt buiten het toezicht van de AFM valt. Mede daardoor ervaren verschillende beleggers dat het percentage gegeven een onrealistisch beeld geeft die geld kan kosten.</p>
+      </div>
+      <div>
+        <h3 class="reveal">Wat het bedrijf doet.</h3>
+        <p class="reveal">Ik zal u een zo realistisch mogelijk rendementspercentage berekenen. Ik hanteer een makkelijk te volgen rekenmethode, waarbij ik alles meeneem. Denk aan de bezettingsgraad, servicekosten, VvE-bijdrage, financieringslasten etc. Ik toon ook altijd al mijn bronnen, met eventuele schattingen gemaakt door uzelf.</p>
+        <div class="ph-img photo h2 reveal"><img src="assets/handdruk.jpg" alt="Handdruk bij de verkoop van een woning"></div>
+        <p class="reveal">Deze methode kan uitgeoefend worden op verschillende vastgoedobjecten, waarbij onze specialiteit ligt bij recreatiewoningen. Denk aan een bungalow, vakantie boerderij etc.</p>
+        <p class="reveal">Wanneer u denkt dat dit voor u ten voordele kan zijn, hoeft u me alleen maar <a href="contact.html" class="inline-link">vrijblijvend te contacteren</a>, waarbij we de mogelijkheden bespreken. Bij afronding van het rapport spreken ergens gunstig voor u af, waarbij ik mijn rapport aan u geef en we samen door de cijfers van het rapport heen lopen. Ik garandeer geen rendement, maar geef u puur cijfermatig het realistische inzicht van wat u zou kunnen verwachten van uw investering, samen met een persoonlijk gesprek.</p>
+        <p class="reveal">We hebben als bedrijf geen verkoopbelang bij de woning die u wilt kopen. Wij krijgen geen commissie, en zijn op geen enkele manier betrokken met de aanbieder van de woning. Wij bieden u puur een eerlijke, tweede kritische blik op de cijfers. Wij gaan de cijfers na, en berekenen met zekerheden en onzekerheden een schatting van het rendement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="wrap">
+    <div class="carousel" id="carousel">
+      <div class="slide active">
+        <q>Het contact met Sven was erg prettig. Hij legde duidelijk uit hoe hij op zijn cijfers is gekomen, die ook klopte als een bus haha. Goede service.</q>
+        <div class="name">Rob</div>
+      </div>
+      <div class="slide">
+        <q>Duidelijk en professioneel, precies zoals ik het wou. En goede klantenservice.</q>
+        <div class="name">Nicole</div>
+      </div>
+      <div class="slide">
+        <q>Het rapport zag er keurig uit. Het was voor mij duidelijk en goed om te volgen. Door dit rapport en begeleiding van Sven heb ik met zekerheid de keuze gemaakt om de recreatiewoning aan te kopen.</q>
+        <div class="name">Jens</div>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button id="prevBtn" aria-label="Vorige">←</button>
+      <button id="nextBtn" aria-label="Volgende">→</button>
+    </div>
+  </div>
+</section>
+
+<section class="wieikhelp" id="wie-ik-help">
+  <div class="wrap">
+    <div class="split">
+      <div class="ph-img reveal">Foto: handtekening zetten op contract</div>
+      <div>
+        <h2 class="reveal"><span class="underline">Wie ik help.</span></h2>
+        <p class="reveal">Ik heb gezien dat dit probleem zich vooral voorkomt bij de voorzichtige, beginnende belegger die voor de eerste keer of juist een tweede keer een recreatiewoning overweegt. De belegger heeft meestal geen financieel adviseur. Maar vooral, is het een belegger die zeker wil weten of de cijfers kloppen voordat ze gaan tekenen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="overmij" id="over-mij">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <h2 class="reveal">Over mij.</h2>
+        <p class="reveal">Ik ben Sven Bos, 17 jaar, en zit momenteel in mijn examenjaar op het vwo (profiel Economie & Maatschappij). Naast school werk ik bij een makelaardij en met een jonge ondernemer, waarvoor ik taxatierapporten uitwerk.</p>
+        <p class="reveal">Het idee voor Voor Je Tekent is ontstaan vanuit twee momenten. De eerste was toen een familielid van mij zich afvroeg wat het rendement zou zijn als hij zou investeren in een vastgoed object om te verhuren, en het tweede moment toen ik op vakantie was in Frankrijk en mijn vader ging kijken naar de prijs van een recreatievilla op het vakantiepark.</p>
+        <p class="reveal">Ik ging thuis nalezen hoe interessant het is voor mensen om daarin te investeren, en kwam na veel onderzoek tot de conclusie dat in Nederland de rendementspercentages die gegeven zijn door de parken onrealistisch en niet onderbouwd zijn. Ik vond dat mensen de mogelijkheid moesten hebben om een eerlijke kijk op de cijfers te krijgen, waaruit het bedrijf is ontstaan.</p>
+      </div>
+      <div class="ph-img photo reveal"><img src="assets/portret.jpg" alt="Portret van Sven Bos"></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <h2 class="underline">Contactgegevens.</h2>
+    <div class="footer-grid">
+      <div class="contact-lines">
+        <div>E-mail: [e-mailadres]</div>
+        <div>06-34214696</div>
+        <div>De Werft 1, 5066MN Moergestel</div>
+      </div>
+      <div>
+        <h4>Volg ons</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">X (Formerly Twitter)</a></li>
+          <li><a href="#">Pinterest</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Juridisch</h4>
+        <div class="legal-note">Kvk Nummer: [in aanvraag]</div>
+        <div class="legal-note">Wij geven GEEN beleggingsadvies en garanderen GEEN rendement.</div>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Voor Je Tekent</div>
+  </div>
+</footer>
+
+<script>
+// Reveal on scroll (re-triggers every time an element enters view)
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('in');
+    else e.target.classList.remove('in');
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => io.observe(el));
+
+// Testimonial carousel
+const slides = document.querySelectorAll('#carousel .slide');
+let current = 0;
+function showSlide(i) {
+  slides[current].classList.remove('active');
+  current = (i + slides.length) % slides.length;
+  slides[current].classList.add('active');
+}
+document.getElementById('nextBtn').addEventListener('click', () => showSlide(current + 1));
+document.getElementById('prevBtn').addEventListener('click', () => showSlide(current - 1));
+let autoplay = setInterval(() => showSlide(current + 1), 6000);
+document.getElementById('carousel').addEventListener('mouseenter', () => clearInterval(autoplay));
+document.getElementById('carousel').addEventListener('mouseleave', () => { autoplay = setInterval(() => showSlide(current + 1), 6000); });
+</script>
+
+</body>
+</html>
