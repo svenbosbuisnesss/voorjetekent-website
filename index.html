@@ -262,3 +262,68 @@ document.getElementById('carousel').addEventListener('mouseleave', () => { autop
 
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jouw Bedrijfsnaam</title>
+  
+  <!-- Google Fonts voor een strak en modern logo/lettertype -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  
+  <!-- AOS Bibliotheek voor de scroll-animaties -->
+  <link rel="stylesheet" href="https://unpkg.com" />
+  
+  <!-- Jouw eigen CSS bestand -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1. HERO SECTIE (Animatie bij inladen) -->
+  <header class="hero">
+    <div class="hero-content">
+      <!-- Jouw tekst-logo -->
+      <div class="hero-logo-text">BEDRIJFSNAAM</div>
+      <!-- Subtitel onder het logo -->
+      <h1 class="hero-title">Innovatieve oplossingen voor jouw business</h1>
+    </div>
+  </header>
+
+  <!-- 2. CONTENT SECTIE (Animaties bij scrollen) -->
+  <main class="content-container">
+    
+    <!-- Blok 1: Vliegt van links in -->
+    <section class="scroll-block" data-aos="fade-right">
+      <h2>Over Ons</h2>
+      <p>Wij bouwen aan de digitale toekomst met oog voor detail en resultaat.</p>
+    </section>
+
+    <!-- Blok 2: Vliegt van rechts in -->
+    <section class="scroll-block" data-aos="fade-left">
+      <h2>Onze Diensten</h2>
+      <p>Van strategie tot realisatie: wij ondersteunen je bij elke stap van het proces.</p>
+    </section>
+
+    <!-- Blok 3: Zoomt in vanuit het midden -->
+    <section class="scroll-block" data-aos="zoom-in">
+      <h2>Waarom Wij?</h2>
+      <p>Persoonlijke aanpak, snelle service en gegarandeerde kwaliteit.</p>
+    </section>
+
+  </main>
+
+  <!-- AOS Initialiseren (JavaScript onderaan voor maximale snelheid) -->
+  <script src="https://unpkg.com"></script>
+  <script>
+    AOS.init({
+      duration: 1000,  // Hoe lang de scroll-animatie duurt (1 seconde)
+      once: true,      // Animaties spelen maar 1 keer af (strakker voor de gebruiker)
+      offset: 120,     // Start de animatie pas als het element 120px in beeld is
+    });
+  </script>
+</body>
+</html>
